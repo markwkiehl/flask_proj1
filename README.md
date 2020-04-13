@@ -18,4 +18,3 @@ When done working on the project:
 * (venv) $ venv\scripts\deactivate
 * $ set FLASK_APP=
 
-MIT License
