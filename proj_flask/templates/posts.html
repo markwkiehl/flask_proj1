@@ -1,0 +1,74 @@
+<!-- The header and footer are in template.html  -->
+{% extends "template.html" %}
+
+{% block content %}
+
+<div class="colmask threecol">
+	<div class="colmid">
+		<div class="colleft">
+			<div class="col1">
+				<!-- center column -->
+				<!-- Column 1 start -->
+				
+				<h2 title="h2 title">Heading 2</h2>
+				
+				<h3 title="">Posts by {{ user.username }} </h3>
+				<p>&nbsp;</p>
+				
+				{% for post in posts %}
+				<div class="post">
+							<div class="date"> <span class="month">{{ post.month }}</span> <span class="year style6">{{ post.year }}</span> </div>
+						<p><span class="title"><a href="" title="" >article title</a></span></p>
+						<p>{{ post.body }}</p>
+						<p class="alignRight"> <a href="" title="click to read more.." >Read More</a> </p>
+				</div>					
+				{% endfor %}
+				
+				<div class="post">
+							<div class="date"> <span class="month">Nov</span> <span class="year style6">Year</span> </div>
+						<p><span class="title"><a href="" title="" >article title</a></span></p>
+						<p>article teaser</p>
+						<p><a href="" title="" target="_blank">html link</a></p>
+						<p class="alignRight"> <a href="" title="click to read more.." >Read More</a> </p>
+				</div>		
+
+				<div class="post">
+							<div class="date"> <span class="month">Oct</span> <span class="year style6">Year</span> </div>
+						<p><span class="title"><a href="" title="" >article title</a></span></p>
+						<p>article teaser</p>
+						<p class="alignRight"> <a href="" title="click to read more.." >Read More</a> </p>
+				</div>	
+				
+				<!-- Column 1 end -->
+			</div>
+			<!-- left column -->
+			<div class="col2">
+				<!-- Column 2 start -->
+				
+				<h2 title="h2 title" >Heading 2</h2>
+				<p>column 2 sidebar</p>
+				<p><a href="" title="" target="_blank">html link</a></p>
+				<p><img src="/static/img/no-image-76x50.png"></p>
+				<p>&nbsp;</p>
+				<p>Below image with link</p>
+				
+				<p><a href="{{ url_for('static', filename='img/no-image-76x50.png') }}" target="_blank"><img height="75" src="/static/img/no-image-76x50.png" title="click to see larger image" /></a></p>
+				<p><a href="/static/img/no-image-76x50.png" target="_blank"><img height="75" src="/static/img/no-image-76x50.png" title="click to see larger image" /></a></p>
+				
+				<!-- Column 2 end -->
+			</div>
+			<div class="col3">
+				<!-- right column -->
+				<!-- Column 3 start -->
+				
+				<h2 title="h2 title" >Heading 2</h2>
+				<p>column 3 sidebar</p>			
+				<p><a href="" title="" target="_blank">html link</a></p>
+				
+				<!-- Column 3 end -->
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

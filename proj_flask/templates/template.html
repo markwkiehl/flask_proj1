@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	{% if site %}
+	<title>index.html - {{ site.sitename }}</title>
+	{% else %}
+	<title>index.html - (site.sitename var not defined)</title>	
+	{% endif %}
+	<meta name="desc" content="Flask template">
+	<meta name="author" content="Mechatronic Solutions LLC">
+	<link rel="shortcut icon" href="/static/img/favicon.ico">
+	<!-- add stylesheet references below,
+		 and then add the .css files to <proj name>/static/css/
+	-->
+	<link rel="stylesheet" type="text/css" href="/static/css/screen.css">
+	<style type="text/css">
+	</style>
+</head>
+<body>
+<div id="header">
+	<div>
+		{% if site %}
+		<h1 title="{{site.sitename}} - Flask template"><a href="/">{{site.sitename}}</a></h1>
+		{% else %}
+		<h1 title="site.sitename not defined"><a href="/">site.sitename not defined</a></h1>
+		{% endif %}
+		
+	</div>
+
+	<!-- Create tab based navigation menu -->
+	<!-- See flask_navigation and https://flask-navigation.readthedocs.io/en/latest/ -->
+	<ul>
+		{% for item in nav.top %}
+			{% if item.is_active %}
+			<li><a class="active" title="{{ item.endpoint }}" href="{{ item.url }}">{{ item.label }}</a></li>
+			{% else %}
+			<li><a title="{{ item.endpoint }}" href="{{ item.url }}">{{ item.label }}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+	
+</div>
+
+		
+{% block content %}
+{% endblock %}
+
+<div id="footer">
+	<p>
+		<a href="" title="sitemap" >Sitemap</a>
+		| Copyright &copy; 2020 &nbsp<a href="http://mechatronicsolutionsllc.com/" target="_blank" title="www.MechatronicSolutionsLLC.com" >Mechatronic Solutions LLC</a>
+	</p>
+</div>
+
+<!-- ********************************************************************** -->
+
+<!-- any body javascript goes below -->
+<!-- <script src="js/scripts.js"></script> -->
+</body>
+</html>

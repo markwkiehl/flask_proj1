@@ -1,0 +1,927 @@
+/* 	CSS
+	Box model: margin, border, padding, content 
+	margin: top,right,bottom,left
+	
+	To overcome Internet Explorer's broken box model, no horizontal padding or margins are used 
+	in conjunction with a width. Instead, this design uses percentage widths and clever 
+	relative positioning.
+	
+	
+	header bkg 					-> 	#275a84  
+	header logo h1 text			->	#e3dfe3	 
+	header logo h2 slogan text	->	#acacac  
+	header link hover			->	#000  
+	header menu selected, hover -> 	#153856
+	
+	body text					-> 	#555
+	h3, h4, h5					->	#000
+		
+	left col bkg 				->	#eceef0
+	center col bkg 				->	#f3f3f3
+	right col bkg				->	#eceef0
+	
+	blockquote bkg				->	#eceef0 
+	blockquote border			->	
+	
+	link 						->	#153856
+	link hover text				->	#fafbed
+	link hover bkg				->	#153856
+	
+	img border					->	#fff
+	img border hover			->	#2b2b2b
+	
+	Client colors:				#275a84 medium blue	
+								#153856 dark blue
+								#ffe07b yellow
+								#ffe07b dark grey
+								#182430 grey
+								#3476ad text blue
+								#3476ad text gray
+								#fcfcfc white bkg
+								#eceef0 off white bkg
+		
+*/
+/*
+	www.BizWebSites.us  CSS
+	
+	SEO 
+	
+		Use <strong> and <em> to elevate the importance of those works to your site.
+		
+		<a href="use keyword rich url" title=""></a>
+		
+		<img src="keywork rich url" alt="" title="" />
+	
+	
+	class / id name rules:
+		Must begin with a letter A-Z or a-z.  (Do not start with a number).
+		Can be followed by: letters (A-Za-z), digits (0-9), hyphens ("-"), underscores ("_"), colons (":"), and periods (".")
+		Values are case-sensitive
+	
+	Specify font-family as generic so the browser picks the available specific fonts 
+		
+		Arial, Helvetica, Lucida,  look the same.  Verdana is wider and slightly larger.  Tahoma is fatter.  
+		Sans-Serif, Geneva, SunSans-Regular, look the same.
+	
+		font-family: Arial, Helvetica, Lucida, Tahoma, Verdana, sans-serif;
+
+	
+	Browser window widths by user usage peak at about 800px, 1024px, and 1280px.
+	
+	People use the available width of the browser in a screen up to 1280px, 
+	then it levels out at 1350px.  Assume users will not use a browser width of more than 1350px.
+	
+	display: block;  The element will generate a block box (a line break before and after the element)
+	display: inline; The element will generate a inline box (NO line break before and after the element)
+	
+	Box model: margin, border, padding, content 
+	margin: top,right,bottom,left
+	
+	To overcome Internet Explorer's broken box model, no horizontal padding or margins are used 
+	in conjunction with a width. Instead, this design uses percentage widths and clever 
+	relative positioning.	
+	
+	Lists
+		To make the list flush left, e.g., you need to change both the margin 
+		and the padding. This is because Internet Explorer and Opera opted to 
+		create the indent with the left margin, while Mozilla/Netscape use padding.
+		Note that the markers lie outside of the DIV. If you want the markers to 
+		line up inside the DIV, but along its left side, set either the left 
+		padding or margin to one em.
+		
+
+*/
+/*
+    Great tutorials on CSS:
+        http://www.echoecho.com/cssintroduction.htm
+
+
+
+selector {property:value; }
+    p {color:blue; }
+
+    a:link, a:visited {color: blue; }
+    a:hover, a:active {color: red; }
+        grouped
+
+    i b { font-size:large; }
+        context dependent selector applies only when:
+            <i><b>Example text</b></i>
+
+	h1, h2, h3 {color: green;}
+		applies green to grouped h1, h2, and h3
+			
+class selector
+    .center {text-align:center; }
+        applies to any element with class="center"
+
+    p.center {text-align: center; }
+        applies only to <p class="center"> elements.
+
+    .center .left { font-size:large; }
+    .center {text-align:center; }
+    .left {text-align:left; }
+        applies font size to both .center & .left
+
+	.left p {text-align:left; }
+		aligns only p elements to left with class="left"
+		
+pseudo-class
+    selector:pseudo-class { .. }
+    
+    a.mylnk:link { .. }
+    a.mylnk:visited { .. }
+    a.mylnk:hover { .. }
+    a.mylnk:active { .. }
+
+*/
+
+.bws_link a:hover{
+  text-decoration: underline overline; 
+}
+
+.bws_font-normal {
+  /* eliminates italic, bold, and other effects on <em> <strong> and other tags. */
+  font-style: normal;
+  font-weight: normal;
+  /* font-variant: normal; */
+}
+
+.bws_no-bullet {
+  list-style:none;
+  list-style-type:none;
+  /* below required to fix IE7 bug that puts bullets despite list-style: none; directive.  Alt:  no margin, no bullets. */
+  display:inline; 
+  margin: 0;
+  padding: 0;
+}
+body {
+	margin:0;
+	padding:0;
+	border:0;			/* This removes the border around the viewport in old versions of IE */
+	width:100%;
+	background:#275a84;
+	min-width:600px;		/* Minimum width of layout - remove line if not required */
+							/* The min-width property does not work in old versions of Internet Explorer */
+	font-size:90%;
+	/* 
+	Arial, Helvetica, Lucida,  look the same.  Verdana is wider and slightly larger.  Tahoma is fatter.  
+	Sans-Serif, Geneva, SunSans-Regular, look the same.
+	*/
+	font-family: Arial, Helvetica, Lucida, Tahoma, Verdana, sans-serif;
+	color: #555;
+}
+a {
+	color:#153856;  
+	text-decoration:none;
+}
+a:hover {
+	color:#fafbed;
+	background:#275a84; 
+	text-decoration:none;
+}
+
+img {
+	margin-top:10px;
+	margin-right:0px;
+	margin-bottom:5px;
+	/* the border here and for a:hover img causes black boarder highlight on hover */
+	border: 2px solid #fff;
+}
+a:hover img {
+	border: 2px solid #2b2b2b;
+}
+
+
+h1, h2, h3, h4, h5 {
+	margin:.8em 0 .2em 0;
+	padding:0;
+	color: #000;
+}
+
+
+h2 {
+	padding-bottom: 0.5em;
+}
+h3 {
+}
+h4 {
+}
+p {
+	margin:.4em 0 .8em 0;
+	padding:0;
+}
+
+ul {
+	padding: 0px;
+	margin: 0px;
+}
+li {
+	margin-top: 0.7em;
+}
+
+/* em is used to emphasize keywords to search engines (SEO), but not to the web user.  
+   Use strong to visually emphasize text.  
+*/
+em {
+  font-style: normal;
+  font-weight: normal;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0 20px;
+  background: #eee;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+form {
+	padding: 0;
+	margin: 0;
+}
+
+input:focus,
+input:hover,
+textarea:focus,
+textarea:hover,
+select:focus,
+select:hover {
+	color: #000;
+	background: #eceef0;
+}
+input.button {
+	color: #000;
+	background: #ccc;
+	padding: 2px 3px 2px 3px;
+	margin-right: 5px;
+}
+input.radio {
+	background: none;
+	border: 0px;
+}
+
+
+/* ----------------------------------------------------------------------------------------------- */
+
+.ads {
+	margin-top: 15px;  
+}
+
+.ads img {
+	display:block;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+
+/* Header styles */
+#header {
+	clear:both;
+	float:left;
+	width:100%;
+	background-color: #275a84;
+}
+
+
+
+#header p,
+#header h1,
+#header h2 {
+	padding-top:.4em;
+	padding-right:15px;
+	padding-bottom:0;
+	padding-left:15px;
+	margin:0;
+}
+#header h1 {
+	margin:0;
+	border: none;
+	padding-top:0;
+	padding-right:0;
+	padding-bottom:0;
+	padding-left:15px;
+	font-size: 1.5em;
+	letter-spacing: 0.1em;
+	word-spacing: 2px;
+	font-family: Verdana, Tahoma, sans-serif; 
+	color: #fbfcee;
+}
+#header h1 a {
+	color: #fff;
+}
+
+#header ul {
+	clear:left;
+	float:left;
+	width:100%;
+	list-style:none;
+	margin: 10px 0 0 15px;
+	padding:0;
+}
+#header ul li {
+	display:inline;
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#header ul li a {
+	display:block;
+	float:left;
+	margin:0 0 0 1px;
+	padding:3px 10px;
+	text-align:center;
+	color:#000;
+	background:#bcbcbc;	/*  critical: fills in white space below images in non-ie browsers */
+	text-decoration:none;
+	position:relative;
+	/* left:15px; causes problem with menu, but also moves all content to left */
+	line-height:1.3em;
+}
+#header ul li a span {
+	display:block;
+}
+
+#header ul li a:hover {
+	color: #fff;
+	background: #153856;
+}
+#header ul li a:hover span{
+	color:#fff;
+	background:#153856;
+}
+
+#header ul li a.active,
+#header ul li a.active:hover {
+	/*
+	color: #fff;
+	background: #555;
+	*/
+	color: #fff;
+	background: #153856;
+}
+#header ul li a.active,
+#header ul li a.active:hover span {
+	color: #fff;
+	background: #153856;
+}
+
+/* -------------------------------------------------- */
+/* logo, h1, h2 & phone								 */
+/* -------------------------------------------------- */
+
+#phone {
+	display: inline;
+	float: right;
+	margin: 5px 15px 5px 5px;
+}
+#phone p {
+	color: #fff;
+	border: none;
+	font-size: 1em;
+	margin: 5px 0 0 0;
+	padding: 0;
+}
+#phone a {
+	color: #fff;
+}
+#phone a:hover {
+	color: #000;
+	text-decoration: none;
+}	
+#phone a img {
+	border: none;
+	/*
+	border: collapse;
+	*/
+}
+
+#logo {
+	display: inline;
+	float: left;
+	border: none;
+	margin: 5px 5px 10px 15px; 
+}
+#logo a img {
+	margin: 0px 0px 0px 110px;
+	border: none;
+	padding: 0;
+	text-decoration:none;
+}
+#logo h1 {
+	margin: 0;
+	border: none;
+	padding: 0;
+	text-indent: -9999px; 
+	color: #fff;
+	line-height:0px;
+	font-size: 1px;
+}
+#logo h2 {
+	margin:0;
+	border: none;
+	padding: 0;	
+	font-size: 1.0em;
+	letter-spacing: 0.1em;
+	word-spacing: 2px;
+	font-family: Verdana;
+	color: #e3dfe3;
+}
+
+/* -------------------------------------------------- */
+/* banner */
+/* -------------------------------------------------- */
+#banner {
+	clear:left;
+	float:left;
+	width:100%;
+	/*
+	background:#B7B7B7 url(roundbar-grey.gif) 0 25% repeat;
+	*/
+	background-color: #275a84;
+	font-family:"Trebuchet MS", "Helvetica", sans-serif;
+	border-bottom:5px solid #275a84;  
+	border-top: 5px solid #275a84;
+}
+
+.slideshow { 
+	float: left;	/* must have this */
+	margin-left: 5px;
+	display:inline;
+	/* Safari requires both width & height specified */
+	/* images were 258x143 (width:258, height:146), now 282x187 (width:282, height:187) */
+	width:282px;
+	height:187px;
+}
+#slideshow-first { 
+	margin-left: 15px;
+	/* pushes the first and following images to the right 10px from left edge */
+
+	/* Safari requires both width & height specified */
+	width:282px;
+	height:187px;
+}
+
+/* #banner ul, li, a, ... below not used in this template */
+
+#banner ul {
+	clear:left;
+	float:left;
+	list-style:none;
+	margin:0;
+	padding:0;
+	position:relative;
+	left:50%;
+	text-align:center;
+}
+#banner ul li {
+	display:block;
+	float:left;
+	list-style:none;
+	margin:0; 
+	padding:0;
+	position:relative;
+	right:50%;
+}
+#banner ul li a {
+	display:block;
+	margin:0;
+	padding: 2px;
+	color:#000;
+	text-decoration:none;
+	border: none;
+	line-height:1.3em; 
+}
+#banner ul li a span {
+	display:block;
+}
+#banner li a:hover {
+}
+
+#banner img {
+	margin: 0;
+	padding: 0;
+	border: none;	/* do not change.  not consistent across browsers here */
+}
+
+#banner ul li.first {
+	margin-left: 15px;
+	/* pushes the first and following images to the right 15px from left edge */
+}
+
+
+
+
+
+
+
+/* 'widths' sub menu */
+#layoutdims {
+	clear:both;
+	background:#eee;
+	border-top:4px solid #000;
+	margin:0;
+	padding:6px 15px !important;
+	text-align:right;
+}
+
+
+/* Footer styles */
+#footer {
+	clear:both;
+	float:left;
+	width:100%;
+	border-top:1px solid #555;
+	background: #275a84;
+	color: #fff;
+	padding: 10px 0px 10px 0px;
+}
+#footer p {
+	padding: 5px;
+	margin:0;
+	text-align: center;
+}
+#footer p span {
+	font-size: 0.7em;
+}
+#footer a {
+	color: #fff;  
+	text-decoration: none;
+}
+#footer a:hover {
+	color: #000;	
+	background: #275a84; 
+	text-decoration: none;
+}
+
+/* column container */
+.colmask {
+	position:relative;	/* This fixes the IE7 overflow hidden bug */
+	clear:both;
+	float:left;
+	width:100%;			/* width of whole page */
+	overflow:hidden;		/* This chops off any overhanging divs */
+}
+/* common column settings */
+.colright,
+.colmid,
+.colleft {
+	float:left;
+	width:100%;
+	position:relative;
+}
+.col1,
+.col2,
+.col3 {
+	float:left;
+	position:relative;
+	padding:0 0 1em 0;
+	overflow:hidden;
+}
+
+
+/* 3 Column settings */
+.threecol {
+	background: #eceef0;		/* right column background colour */
+}
+.threecol .colmid {
+	right: 25%;			/* width of the right column */
+	background: #fff;		/* center column background colour */
+}
+.threecol .colleft {
+	right: 50%;			/* width of the middle column */
+	background:#eceef0;	/* left column background colour */
+}
+.threecol .col1 {
+	width: 46%;			/* width of center column content (column width minus padding on either side) */
+	left: 102%;			/* 100% plus left padding of center column */
+}
+.threecol .col2 {
+	width: 21%;			/* Width of left column content (column width minus padding on either side) */
+	left: 31%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+}
+.threecol .col3 {
+	width: 21%;			/* Width of right column content (column width minus padding on either side) */
+	left: 85%;			/* Please make note of the brackets here:
+					(100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
+}
+
+/* 3 Column blog style settings */
+.blogstyle {
+	background: #eee;			/* right column background colour */
+}
+.blogstyle .colmid {
+	right: 25%;				/* width of the right column */
+	background: #eceef0;		/* center column background colour */
+}
+.blogstyle .colleft {
+	right: 25%;				/* width of the middle column */
+	background: #fff;			/* left column background colour */
+}
+.blogstyle .col1 {
+	width: 46%;				/* width of center column content (column width minus padding on either side) */
+	left: 52%;				/* 100% plus left padding of center column */
+}
+.blogstyle .col2 {
+	width: 21%;				/* Width of left column content (column width minus padding on either side) */
+	left: 56%;				/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+}
+.blogstyle .col3 {
+	width: 21%;				/* Width of right column content (column width minus padding on either side) */
+	left: 60%;				/* Please make note of the brackets here:
+						(100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
+}
+
+/* 2 Column (left menu) settings */
+.leftmenu {
+	background: #fff;		/* right column background colour */
+}
+.leftmenu .colleft {
+	right: 75%;			/* left column width */
+	background: #eceef0;	/* left column background colour */
+}
+.leftmenu .col1 {
+	width: 71%;			/* right column content width */
+	left: 102%;			/* 100% plus left column left padding */
+}
+.leftmenu .col2 {
+	width: 21%;			/* left column content width (column width minus left and right padding) */
+	left: 6%;			/* (right column left and right padding) plus (left column left padding) */
+}
+
+/* 2 Column (right menu) settings */
+.rightmenu {
+	background: #eceef0;		/* right column background colour */
+}
+.rightmenu .colleft {
+	right:25%;			/* right column width */
+	background: #fff;		/* left column background colour */
+}
+.rightmenu .col1 {
+	width:71%;			/* left column content width (left column width minus left and right padding) */
+	left:27%;			/* (right column width) plus (left column left padding) */
+}
+.rightmenu .col2 {
+	width:21%;			/* right column content width (right column width minus left and right padding) */
+	left:31%;			/* (right column width) plus (left column left and right padding) plus (right column left padding) */
+}
+
+/* 2 Column (double page) settings */
+.doublepage {
+	background:#eee;		/* right column background colour */
+}
+.doublepage .colleft {
+	right:50%;			/* right column width */
+	background:#fff;		/* left column background colour */
+}
+.doublepage .col1 {
+	width:46%;			/* left column content width (column width minus left and right padding) */
+	left:52%;			/* right column width plus left column left padding */
+}
+.doublepage .col2 {
+	width:46%;			/* right column content width (column width minus left and right padding) */
+	left:56%;			/* (right column width) plus (left column left and right padding) plus (right column left padding) */
+}
+
+/* Full page settings */
+.fullpage {
+	background:#fff;		/* page background colour */
+}
+.fullpage .col1 {
+	width:96%;			/* page width minus left and right padding */
+	left:2%;			/* page left padding */
+}
+
+/**************************************************************
+   Posts
+ **************************************************************/
+
+.post {
+  float: left;
+  width: 100% !important; 
+  width: 99%;
+  position: relative;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.post .date {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 2.3em;
+  text-align: right;
+}
+
+.post .date .month {
+  text-transform: uppercase;
+  font: 700 1.2em arial, sans-serif;
+  color: #888;
+}
+
+.post .date .day {
+  display: block;
+  margin-top: -5px;
+  font: 700 2.1em arial, sans-serif;
+  color: #888;
+}
+
+.post .date .year {
+  display: block;
+  margin-top: 5px;
+  font: 700 1.0em arial, sans-serif;
+  color: #888;
+}
+
+.post .title {
+  display: block;
+  padding: 0 0 5px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #153856;
+}
+
+.post p {
+  margin: 0 0 0 3.5em;
+  padding:  0 0 1em 1.2em;
+  border-left: 1px solid #CCCCCC;
+}
+
+/**************************************************************
+   Products
+ **************************************************************/
+.products {
+  float: left;
+  width: 100%;
+  width: 99%;
+  position: relative;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #CCCCCC;
+}
+.products p {
+  margin: 0 0.5em 0 0.5em;
+  padding:  0 0 1em 1.2em;
+}
+
+.product {
+  float: left;
+  width: 100%;
+  width: 99%;
+  position: relative;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #CCCCCC;
+}
+.product p {
+  margin: 0 0 0 0.5em;
+  padding:  0 0 1em 1.2em;
+}
+
+.product img{
+  margin: 0 0 0 3.5em;
+  padding:  0 0 1em 1.2em;
+}
+
+/**************************************************************
+   Image + Caption
+ **************************************************************/
+.imageCaption {
+	width: 150px;
+	float: left;
+	margin: 15px 10px 0 0;
+	padding: 0;
+}
+.imageCaption p {
+	margin: 5px;
+	padding: 0;
+}
+.imageCaption img {
+	width: 100%;
+	margin: 0;
+	padding: 0;	
+	border: 1px solid #000;
+}
+
+/* ----------- this site specific styles ----------------------- */
+.floatRight {
+	float: right;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.alignTop {
+  vertical-align: top;
+}
+
+.alignMiddle {
+  vertical-align: middle;
+}
+
+.alignBottom {
+  vertical-align: bottom;
+}
+
+.paddingLeft {
+	padding-left: 15px;
+}
+
+.displayBlock {
+	display: block;
+}
+.displayInline {
+	display: inline;
+}
+
+
+.listBulletSquare ul {
+	list-style-type: square;
+}
+.listBulletCircle ul {
+	list-style-type: circle;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/*	Tables 	*/
+/*  Meyer Reset method to reset table CSS */
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: inherit;
+  vertical-align: baseline;
+}
+caption {
+  font-size: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* ----------------------------------------------------------------------------------------------- */
+/*	Tables 	*/
+/*  Meyer Reset method to reset table CSS */
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: inherit;
+  vertical-align: baseline;
+}
+caption {
+  font-size: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*  Tables
+	https://css-tricks.com/complete-guide-table-element/
+	https://www.textfixer.com/tutorials/css-tables.php
+	http://cssmenumaker.com/blog/stylish-css-tables-tutorial/
+
+*/
+
+table.gridtable {
+	/*
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	*/
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+/* ----------------------------------------------------------------------------------------------- */
+/*	Figures & Captions
+
+	https://www.w3.org/Style/Examples/007/figures.en.html
+*/
+
+
+

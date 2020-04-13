@@ -1,0 +1,45 @@
+<!-- The header and footer are in template.html  -->
+{% extends "template.html" %}
+
+{% block content %}
+
+<!-- liquid-2-column-right-menu -->
+<div class="colmask rightmenu">
+	<div class="colleft">
+		<div class="col1">
+			<!-- Column 1 start -->
+
+			<h2>XML</h2>
+			{% if request.args.get('topic') != None %}
+				{% for dic in topics %}
+					<h2><a href="xml?topic={{ dic['aHref'] }}" title="{{ dic['aTitle'] }}">{{ dic['title'] }}</a></h2>
+					{{ dic['text']|safe }}
+					<p>&nbsp;</p>
+				{% endfor %}
+			{% endif %}
+
+			<!-- Column 1 end -->
+		</div>
+		<div class="col2">
+			<!-- Column 2 start -->
+			
+			<h2>Products</h2>
+
+			<div class="ads">
+				{% for dic in topics_all %}
+					<a href="xml?topic={{ dic['aHref'] }}">
+						<img src="{{ dic['imgSrc'] }}" height="43" title="{{ dic['aTitle'] }}" alt="{{ dic['aTitle'] }}" />
+					</a>
+					<p>{{ dic['title'] }}</p>
+					<p>&nbsp;</p>
+				{% endfor %}
+			</div>
+
+			<!-- Column 2 end -->
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}
